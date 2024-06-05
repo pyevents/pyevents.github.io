@@ -29,9 +29,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_FINE_GRAINED_PAT: ${{ secrets.GH_FINE_GRAINED_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'Ali Tavallaie'
-          git config --global user.email 'a.tavallaie@gmail.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           ghp-import output -b gh-pages
-          git push -fq https://tavallaie:${{ secrets.GH_FINE_GRAINED_PAT }}@github.com/pyevents/pyevents.github.io.git gh-pages
+          git push -fq https://${{ secrets.GITHUB_TOKEN }}@github.com/pyevents/pyevents.github.io.git gh-pages
