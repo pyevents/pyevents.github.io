@@ -31,7 +31,7 @@ jobs:
         env:
           GH_FINE_GRAINED_PAT: ${{ secrets.GH_FINE_GRAINED_PAT }}
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'YourGitHubUsername'
+          git config --global user.email 'your-email@example.com'
           ghp-import output -b gh-pages
-          git push -fq https://$GH_FINE_GRAINED_PAT@github.com/${{ github.repository }} gh-pages
+          git push -fq https://YourGitHubUsername:$GH_FINE_GRAINED_PAT@github.com/pyevents/pyevents.github.io.git gh-pages
