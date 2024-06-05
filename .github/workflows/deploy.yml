@@ -34,4 +34,4 @@ jobs:
           git config --global user.name 'Ali Tavallaie'
           git config --global user.email 'a.tavallaie@gmail.com'
           ghp-import output -b gh-pages
-          git push -fq https://tavallaie:$GH_FINE_GRAINED_PAT@github.com/pyevents/pyevents.github.io.git gh-pages
+          git push -fq https://tavallaie:${{ secrets.GH_FINE_GRAINED_PAT }}@github.com/pyevents/pyevents.github.io.git gh-pages
