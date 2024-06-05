@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.header {
+    @apply bg-gradient-to-r from-blue-500 to-blue-700 text-white py-6;
+}
+
+.content {
+    @apply bg-white p-8 rounded-lg shadow-lg;
+}
+
+.footer {
+    @apply bg-gray-900 text-white py-4 text-center;
+}

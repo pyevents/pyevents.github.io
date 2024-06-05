@@ -1,0 +1,12 @@
+<!-- themes/pyevents/templates/tags.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Tags</h2>
+<ul>
+    {% for tag, articles in tags %}
+    <li>
+        <a href="{{ SITEURL }}/tags/{{ tag.slug }}" class="text-blue-500 hover:underline">{{ tag.name }}</a> ({{ articles | length }})
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
