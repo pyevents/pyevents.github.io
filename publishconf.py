@@ -12,13 +12,9 @@ CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 
-# Following items are often useful when publishing
-# DISQUS_SITENAME = ""
-# GOOGLE_ANALYTICS = ""
-
 STATIC_PATHS = ["static", "images"]
 
 EXTRA_PATH_METADATA = {
-    "static/css/main.css": {"path": "theme/css/main.css"},
-    "static/images/default-poster.png": {"path": "theme/images/default-poster.png"},
+    "static/css/main.css": {"path": "static/css/main.css"},
+    "static/images/default-poster.png": {"path": "static/images/default-poster.png"},
 }

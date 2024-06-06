@@ -62,3 +62,9 @@ TEMPLATE_PAGES = {"404.html": "404.html"}
 
 # Register the custom filter
 filters.register()
+STATIC_PATHS = ["static", "images"]
+
+EXTRA_PATH_METADATA = {
+    "static/css/main.css": {"path": "static/css/main.css"},
+    "static/images/default-poster.png": {"path": "static/images/default-poster.png"},
+}
