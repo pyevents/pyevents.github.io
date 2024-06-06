@@ -23,21 +23,23 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
+      - name: Remove existing tailwind symlink
+        run: |
+          rm -f /home/runner/work/pyevents.github.io/pyevents.github.io/node_modules/.bin/tailwind
+
       - name: Install dependencies
         run: |
-          sudo apt-get install -y nodejs npm
-          npm install -g tailwindcss
+          npm install --force
           python -m pip install --upgrade pip
           pip install pelican markdown ghp-import
 
       - name: Build Tailwind CSS
         run: |
-          npm install --force
           npm run build:css
 
       - name: Build the site
