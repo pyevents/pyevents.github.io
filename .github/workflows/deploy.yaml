@@ -42,6 +42,10 @@ jobs:
         run: |
           pelican content -s publishconf.py --output output
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: output
 
   deploy:
     needs: build
