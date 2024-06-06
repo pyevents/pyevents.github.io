@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,13 +30,14 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt-get install -y nodejs npm
           npm install -g tailwindcss
           python -m pip install --upgrade pip
           pip install pelican markdown ghp-import
 
       - name: Build Tailwind CSS
         run: |
-          npm install
+          npm install --force
           npm run build:css
 
       - name: Build the site
@@ -54,7 +55,7 @@ jobs:
         with:
           path: output
 
-  deploy:
+  publish:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
