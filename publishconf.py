@@ -18,8 +18,7 @@ DELETE_OUTPUT_DIRECTORY = True
 
 STATIC_PATHS = ["static", "images"]
 
-# Ensure these paths match your project structure
 EXTRA_PATH_METADATA = {
-    "static/css/main.css": {"path": "static/css/main.css"},
-    "static/images/default-poster.png": {"path": "static/images/default-poster.png"},
+    "static/css/main.css": {"path": "theme/css/main.css"},
+    "static/images/default-poster.png": {"path": "theme/images/default-poster.png"},
 }
