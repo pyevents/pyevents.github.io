@@ -23,18 +23,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Remove existing tailwind symlink
-        run: |
-          rm -f /home/runner/work/pyevents.github.io/pyevents.github.io/node_modules/.bin/tailwind
-
       - name: Install dependencies
         run: |
-          npm install --legacy-peer-deps
+          npm install --force
           python -m pip install --upgrade pip
           pip install pelican markdown ghp-import
 
@@ -46,16 +42,6 @@ jobs:
         run: |
           pelican content -s publishconf.py --output output
 
-      - name: Fix permissions
-        run: |
-          chmod -c -R +rX output | while read line; do
-            echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: output
 
   deploy:
     needs: build
